@@ -1,0 +1,21 @@
+apply plugin: 'groovy'
+apply plugin: 'java-gradle-plugin'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile('org.spockframework:spock-core:1.1-groovy-2.4') {
+        exclude group: 'org.codehaus.groovy'
+    }
+}
+
+gradlePlugin {
+    plugins {
+        sitePlugin {
+            id = 'com.bmuschko.myplugin'
+            implementationClass = 'com.bmuschko.MyPlugin'
+        }
+    }
+}
